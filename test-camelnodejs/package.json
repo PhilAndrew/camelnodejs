@@ -10,6 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "camelnodejs": "^1.0.7"
+    "camelnodejs": "^1.0.8"
   }
 }
