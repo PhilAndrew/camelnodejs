@@ -32,7 +32,8 @@ To avoid use of the JVM, Java code using Apache Camel as a library is compiled w
 * Support Javascript routing, currently only supports YAML file routing
 * Add example Apache Camel routes and test cases
 * Tighter integration with NodeJS
-
+* Support multiple YAML files and/or any number of YAML files within a directory
+* Support YAML file name as a parameter rather than default of route.yaml
 ## Usage
 
 `npm install camelnodejs`
