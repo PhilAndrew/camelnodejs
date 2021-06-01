@@ -5,6 +5,36 @@ Run Camel routes from NodeJS.
 
 If you want to run Apache Camel routes from Kubernetes then consider [Apache Camel K](https://camel.apache.org/camel-k/latest/).
 
+If your happy to use Java or a JVM then I suggest you use that rather than this, this is a way to avoid using JVM and still run Apache Camel from NodeJS.
+
+## Usage
+
+`npm install camelnodejs`
+
+Given a route.yaml
+
+```yaml
+- route:
+    from: "timer:yaml?period=3s"
+    steps:
+      - set-body:
+          simple: "Timer fired ${header.CamelTimerCounter} times"
+      - to:
+          uri: "log:yaml"
+```
+
+Then the corrisponding `index.js` javascript
+
+```javascript
+const camelnodejs = require('camelnodejs');
+
+(async () => {
+    await camelnodejs.startApacheCamel();
+})()
+```
+
+Run with node, `node index.js` then it executes the Apache Camel route.
+
 ## Notes
 
 This is in early development, works on Windows only. (at this moment).
@@ -34,30 +64,3 @@ To avoid use of the JVM, Java code using Apache Camel as a library is compiled w
 * Tighter integration with NodeJS
 * Support multiple YAML files and/or any number of YAML files within a directory
 * Support YAML file name as a parameter rather than default of route.yaml
-## Usage
-
-`npm install camelnodejs`
-
-Given a route.yaml
-
-```yaml
-- route:
-    from: "timer:yaml?period=3s"
-    steps:
-      - set-body:
-          simple: "Timer fired ${header.CamelTimerCounter} times"
-      - to:
-          uri: "log:yaml"
-```
-
-Then the corrisponding `index.js` javascript
-
-```javascript
-const camelnodejs = require('camelnodejs');
-
-(async () => {
-    await camelnodejs.startApacheCamel();
-})()
-```
-
-Run with node, `node index.js` then it executes the Apache Camel route.
