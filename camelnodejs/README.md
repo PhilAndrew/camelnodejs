@@ -17,7 +17,7 @@ This is in early development, works on Windows only. (at this moment).
 
 ## Solution
 
-To avoid use of the JVM, Java code using Apache Camel as a library is compiled with Quarkus to a binary executable, this executable can then run the Camel route. NodeJS executes this executable.
+To avoid use of the JVM, Java code using Apache Camel as a library is compiled with Quarkus to a binary executable, this executable can then run the Camel route. NodeJS executes this executable. In a sample run the binary executable `camel-quarkus-runner.exe` file size was 55.6 MB and when running used 32.0 MB of memory which is reasonable.
 
 ## Restrictions
 
