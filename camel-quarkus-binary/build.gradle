@@ -1,0 +1,51 @@
+plugins {
+    id 'java'
+    id 'io.quarkus'
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
+    implementation 'org.apache.camel.quarkus:camel-quarkus-core'
+    implementation 'org.apache.camel.quarkus:camel-quarkus-yaml-dsl'
+    implementation 'org.apache.camel.quarkus:camel-quarkus-csv'
+    implementation 'org.apache.camel.quarkus:camel-quarkus-timer'
+    implementation 'org.apache.camel.quarkus:camel-quarkus-log'
+    //implementation 'org.apache.camel.quarkus:camel-quarkus-sql'
+    //implementation 'org.apache.camel.quarkus:camel-quarkus-jdbc'
+    //implementation 'org.apache.camel.quarkus:camel-quarkus-jolt'
+    //implementation 'org.apache.camel.quarkus:camel-quarkus-jpa'
+    implementation 'org.apache.camel.quarkus:camel-quarkus-file'
+    implementation 'org.apache.camel.quarkus:camel-quarkus-file-watch'
+    implementation 'org.apache.camel.quarkus:camel-quarkus-ftp'
+    implementation 'org.apache.camel.quarkus:camel-quarkus-zipfile'
+    implementation 'io.quarkus:quarkus-arc'
+    //implementation 'io.quarkus:quarkus-resteasy'
+    testImplementation 'io.quarkus:quarkus-junit5'
+    //testImplementation 'io.rest-assured:rest-assured'
+}
+
+group 'org.acme'
+version '1.0.0-SNAPSHOT'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+compileJava {
+    options.encoding = 'UTF-8'
+    options.compilerArgs << '-parameters'
+}
+
+compileTestJava {
+    options.encoding = 'UTF-8'
+}
+
+quarkusDev {
+    workingDir = '.'
+}
