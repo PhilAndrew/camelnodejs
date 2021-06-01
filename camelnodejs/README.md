@@ -17,7 +17,7 @@ This is in early development, works on Windows only. (at this moment).
 
 ## Solution
 
-A Java program using Apache Camel as a library is compiled with Quarkus to an executable, this executable then runs the Camel route.
+To avoid use of the JVM, Java code using Apache Camel as a library is compiled with Quarkus to a binary executable, this executable can then run the Camel route. NodeJS executes this executable.
 
 ## Restrictions
 
